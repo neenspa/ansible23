@@ -1,0 +1,16 @@
+---
+apiVersion: tower.ansible.com/v1alpha1
+kind: AnsibleJob
+metadata:
+  name: create-apache-vm-centos-ansible1-job
+  namespace: aap
+spec:
+  connection_secret: aapaccess
+  job_template_name: VM_provisioning
+  extra_vars: {
+  "vm_cpus": 4,
+  "vm_library": "CRIF-PoC",
+  "vm_memory": 2048,
+  "vm_name": "vm-centos-ansible1",
+  "vm_template_from": "CentOS7"
+}
